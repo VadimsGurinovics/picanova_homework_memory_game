@@ -134,10 +134,10 @@ $(function () {
 
         if (e.type == 'load') {
             var fullOnloadUrl = $(location).attr('href');
-            var parts = fullOnloadUrl.split('/');
+            var parts = fullOnloadUrl.split('/index.html');
         } else {
             var origEvent = e.originalEvent;
-            var parts = origEvent.newURL.split('/');
+            var parts = origEvent.newURL.split('/index.html');
         }
         var hashVal = parts[parts.length - 1];
 
