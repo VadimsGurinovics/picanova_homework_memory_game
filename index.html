@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Concentration Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="Assets/img/siteContent/faviconSmall.png"/>
+    <link rel="stylesheet" href="lib/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="lib/jquery-3.4.1.min.js"></script>
+    <script src="lib/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="scripts/functions.js" async></script>
+</head>
+<body>
+<div id="cntHeader" class="header">
+    <a href="#default" class="logo"><img src="Assets/img/siteContent/faviconLarge.png" alt="logo">Concentration Game</a>
+    <div class="header-right">
+        <a href="#home">Home</a>
+        <a href="#game">The Game</a>
+        <a href="#instructions">Instructions</a>
+        <a href="#about">About us</a>
+    </div>
+</div>
+
+<!--Home page-->
+<div id="homePage" class="pageView">
+    <div class="bg-light">
+        <div class="container">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4">Welcome</h1>
+                    <p class="lead text-muted mb-0">Welcome to our Concentration Game</p>
+                    <p>Concentration, also known as Match Match, Match Up, Memory, Pelmanism, Shinkei-suijaku, Pexeso or
+                        simply Pairs, is a card game in which all of the cards are laid face down on a surface and two
+                        cards are flipped face up over each turn. The object of the game is to turn over pairs of
+                        matching cards.</p>
+                    <p>Any deck of playing cards may be used, although there are also commercial sets of cards with
+                        images. The rules given here are for a standard deck of 52 cards, which are normally laid face
+                        down in four rows of 13 cards each. The two jokers may be included for a total of six rows of
+                        nine cards each.</p>
+
+                    <p>Additional packs can be used for added interest. Standard rules need not be followed: the cards
+                        can be spread out anywhere, such as all around a room.</p>
+                    <p>In turn, each player chooses two cards and turns them face up. If they are of the same rank and
+                        color (e.g. six of hearts and six of diamonds, queen of clubs and queen of spades, or both
+                        jokers, if used) then that player wins the pair and plays again. If they are not of the same
+                        rank and color, they are turned face down again and play passes to the player on the left. Rules
+                        can be changed here too: it can be agreed before the game starts that matching pairs be any two
+                        cards of the same rank, a color-match being unnecessary, or that the match must be both rank and
+                        card suit.</p>
+
+                    <p>The game ends when the last pair has been picked up. The winner is the person with the most
+                        pairs. There may be a tie for first place.</p>
+
+                    <p>Concentration may be played solo either as a leisurely exercise, or with the following scoring
+                        method: play as normal, but keep track of the number of non-matching pairs turned over (this may
+                        be done using poker chips, pennies or by making marks on a sheet of paper). The object is to
+                        clear the tableau in the fewest turns, or to get the lowest possible score.
+
+                        With perfect memorization and using an optimal strategy, the expected number of moves needed for
+                        a game with {\displaystyle n}n cards converges to {\displaystyle \approx 0.8*n}{\displaystyle
+                        \approx 0.8*n}, with {\displaystyle n\to \infty }n\to \infty .[1] For a standard deck of 52
+                        cards, the expected value is {\displaystyle \approx 41.4}{\displaystyle \approx 41.4} moves.</p>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block"><img src="Assets/img/siteContent/home1.png" alt=""
+                                                             class="img-fluid"></div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!--Game page-->
+<div id="gamePage" class="pageView d-none">
+    <div class="container cntGame">
+        <div class="text-center gameInfoContainer">
+            <div class="gameInfo">
+                Points <span id="points">0</span>
+            </div>
+            <div class="gameInfo">
+                Moves <span id="moves">0</span>
+            </div>
+            <button class="btn btn-primary btnStart">
+                Start new game
+            </button>
+            <div id="popupVictory" class="overlay">
+                <div class="popup">
+                    <h2>WOW you did it! Great game!</h2>
+                    <div class="gameSummary">
+                        <div>Points: <span id="totalPoints"></span></div>
+                        <div>Moves: <span id="totalMoves"></span></div>
+                    </div>
+                    <button class="btn btn-primary btnStart" id="btnStart">
+                        Start new game
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="cntGameCards">
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">1</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo1.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">1</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo1.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">2</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo2.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">2</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo2.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">3</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo3.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">3</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo3.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">4</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo4.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">4</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo4.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">5</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo5.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">5</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo5.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">6</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo6.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">6</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo6.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">7</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo7.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">7</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo7.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">8</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo8.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardBack cardFace"><span class="tmpVal">8</span></div>
+                <div class="cardFront cardFace">
+                    <img class="card-value" src="Assets/img/game/logo8.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Instructions page-->
+<div id="instructionsPage" class="pageView d-none">
+    <div class="bg-light">
+        <div class="container">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4">How to play</h1>
+                    <p>
+                        The game itself is to be implemented in Javascript (you can use any toolkit you like if it helps
+                        you, but the
+                        page shouldn't need any server-side logic). The implementation is for one user playing the
+                        Concentration game
+                        alone. The user can turn cards until he collected all pairs. The game should show a 4x4 grid (16
+                        cards in total,
+                        2x8 of them unique). When the "Game" page is shown, the cards are shown with the face down and
+                        are shuffled
+                        randomly by the algorithm. The player can then click on a card to turn it and see the image on
+                        the card. The
+                        user then clicks on the second card to turn also the second card. If both cards show the same
+                        image, the cards
+                        are taken away from the table and the user gets a point. If the cards show different images,
+                        after a timeout,
+                        they are turned face-down again. After the user successfully collects all cards, a message is
+                        shown with
+                        congratulations, informing the user of the number of moves he needed to collect all cards. Then
+                        the user can
+                        click on a button/link "Start new game" to start the game again.
+                    </p></div>
+                <div class="col-lg-6 d-none d-lg-block"><img src="Assets/img/siteContent/about1.png" alt=""
+                                                             class="img-fluid"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white py-5">
+        <div class="container py-5">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
+                    <h2 class="font-weight-light">Lorem ipsum dolor sit amet</h2>
+                    <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#about"
+                                                                                             class="btn btn-light px-5 rounded-pill shadow-sm">Learn
+                        More</a>
+                </div>
+                <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="Assets/img/siteContent/about2.jpg"
+                                                                           alt=""
+                                                                           class="img-fluid mb-4 mb-lg-0"></div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 px-5 mx-auto"><img src="Assets/img/siteContent/about3.jpg" alt=""
+                                                        class="img-fluid mb-4 mb-lg-0">
+                </div>
+                <div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
+                    <h2 class="font-weight-light">Lorem ipsum dolor sit amet</h2>
+                    <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#about"
+                                                                                             class="btn btn-light px-5 rounded-pill shadow-sm">Learn
+                        More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--About page-->
+<div id="aboutPage" class="pageView d-none">
+    <div class="bg-light">
+        <div class="container">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4">About us page</h1>
+                    <p class="lead text-muted mb-0">Create a minimal about us page using Bootstrap 4.</p>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block"><img src="Assets/img/siteContent/about1.png" alt=""
+                                                             class="img-fluid"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white py-5">
+        <div class="container py-5">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
+                    <h2 class="font-weight-light">Lorem ipsum dolor sit amet</h2>
+                    <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#about"
+                                                                                             class="btn btn-light px-5 rounded-pill shadow-sm">Learn
+                        More</a>
+                </div>
+                <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="Assets/img/siteContent/about2.jpg"
+                                                                           alt=""
+                                                                           class="img-fluid mb-4 mb-lg-0"></div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 px-5 mx-auto"><img src="Assets/img/siteContent/about3.jpg" alt=""
+                                                        class="img-fluid mb-4 mb-lg-0">
+                </div>
+                <div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
+                    <h2 class="font-weight-light">Lorem ipsum dolor sit amet</h2>
+                    <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#about"
+                                                                                             class="btn btn-light px-5 rounded-pill shadow-sm">Learn
+                        More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-light py-5">
+        <div class="container py-5">
+            <div class="row mb-4">
+                <div class="col-lg-5">
+                    <h2 class="display-4 font-weight-light">Our team</h2>
+                    <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <!-- Team item-->
+                <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4"><img src="Assets/img/siteContent/about4.png"
+                                                                           alt="" width="100"
+                                                                           class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">Manuella Nevoresky</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+                        <ul class="social mb-0 list-inline mt-3">
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End-->
+
+                <!-- Team item-->
+                <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4"><img src="Assets/img/siteContent/about5.png"
+                                                                           alt="" width="100"
+                                                                           class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">Samuel Hardy</h5><span
+                                class="small text-uppercase text-muted">CEO - Founder</span>
+                        <ul class="social mb-0 list-inline mt-3">
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End-->
+
+                <!-- Team item-->
+                <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4"><img src="Assets/img/siteContent/about6.png"
+                                                                           alt="" width="100"
+                                                                           class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">Tom Sunderland</h5><span
+                                class="small text-uppercase text-muted">CEO - Founder</span>
+                        <ul class="social mb-0 list-inline mt-3">
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End-->
+
+                <!-- Team item-->
+                <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4"><img src="Assets/img/siteContent/about7.png"
+                                                                           alt="" width="100"
+                                                                           class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">John Tarly</h5><span
+                                class="small text-uppercase text-muted">CEO - Founder</span>
+                        <ul class="social mb-0 list-inline mt-3">
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#about" class="socialLink"><i
+                                    class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
+<nav id="cntFooter" class="navbar navbar-default navbar-bottom footer" role="navigation">
+    <ul>
+        <li>| <a href="#home">Home</a> |</li>
+        <li><a href="#game">The Game</a> |</li>
+        <li><a href="#instructions">Instructions</a> |</li>
+        <li><a href="#about">About Us</a> |</li>
+    </ul>
+    <small class="copyright">&copy; Copyright 2020, Example Corporation</small>
+    <small class="codeVersion">master v42.9213</small>
+</nav>
+
+</body>
+</html>
